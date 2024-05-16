@@ -1,0 +1,26 @@
+<head>
+  <meta charset="utf8">
+</head>
+<div style="position: relative;">
+  <h1></h1>
+  <img id="slot" style="width: 100%;"></img>
+</div>
+
+<script>
+  const slot = document.getElementById("slot");
+  const cookie = document.cookie;
+  const keyword = cookie.split("keyword=").pop().replace(/.html$/, "");
+
+  if (keyword) {
+    const data = {
+      bed: "https://media.architecturaldigest.com/photos/620418650dae17d02208789b/1:1/w_1920,h_1920,c_limit/Zinus%20Linda%20Wood%20Platform%20Bed%20Frame.jpg",
+      mask: "https://onemg.gumlet.io/l_watermark_346,w_480,h_480/a_ignore,w_480,h_480,c_fit,q_auto,f_auto/ssrqvbfptjloikozru35.jpg",
+      shoes: "https://rukminim1.flixcart.com/image/612/612/l51d30w0/shoe/z/w/c/10-mrj1914-10-aadi-white-black-red-original-imagft9k9hydnfjp.jpeg?q=70",
+    }
+
+    slot.src = data[keyword];
+    document.querySelector("h1").innerText = `${keyword}에 관심이 있군요!`;
+  } else {
+    document.querySelector("h1").innerText = "관심사를 알 수 없습니다.";
+  }
+</script>
